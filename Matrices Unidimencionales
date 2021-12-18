@@ -1,0 +1,57 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Ejercicio_de_matrices
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            //Inicializacion de variables
+            byte i, numAlumnos;
+            double sumaCalif = 0, promedio, califMin = 10, califMax = 0;
+            //Pedimos el numero de alumnos
+            Console.Write("Ingresa el numero de alumnos: ");
+            numAlumnos = Convert.ToByte(Console.ReadLine());
+            //Creacion de la matriz            
+            double[] calificaciones = new double[numAlumnos];
+            //Pedimos calificaciones con un FOR
+            for (i = 0; i < numAlumnos; i++)
+            {
+                //Pedimos la calificacion
+                Console.Write("Ingresa la calificacion: ");
+                calificaciones[i] = Convert.ToDouble(Console.ReadLine());
+                //Acumulamos la calificacion
+                sumaCalif += calificaciones[i];
+            }
+            //Calculamos el promedio
+            promedio = sumaCalif / numAlumnos;
+            //Pedimos Calificacion Minima
+            for (i = 1; i < numAlumnos; i++)
+            {
+                if (calificaciones[i] < califMin)
+                {
+                    califMin = calificaciones[i];
+                }
+            }
+            //Calculamos la Calificacion Maxima
+            for (i = 1; i < numAlumnos; i++)
+            {
+                if (calificaciones[i] > califMax)
+                {
+                    califMin = calificaciones[i];
+                }
+            }
+            Console.WriteLine("El promedio es {0}", promedio);
+            Console.WriteLine("La calificacion minima es {0}", califMin);
+            Console.WriteLine("La calificacion maxima es {0}", califMax);
+
+
+
+
+        }
+    }
+}
